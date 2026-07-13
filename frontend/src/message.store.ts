@@ -1,22 +1,14 @@
-import { create } from "zustand";
+import { create } from "zustand"
+
+interface messageDATA {
+    messages: string [],
+    setMessages: ( message: string ) => void 
+}
 
 
-
-const useMessageStore = create< {
-    messages:string[],
-    setmessage: ( event: string )=> void 
-}>( ( set ) => (
-     {
-        messages: [],
-        setmessage : ( event: string ) => 
-                    set( state => ({
-                        messages: [...state.messages ,event ]
-                    }) )
-        }
-     
-))
-
-
-
-
-
+export const useMessages =  create< messageDATA >(( set )=>({
+    messages: [],
+    setMessages: ( message ) => set(( state )=>({
+        messages : [...state.messages , message ]
+    }))
+}))

@@ -9,6 +9,7 @@
     "start": "NODE_ENV=production bun src/index.ts"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.3.2",
     "react": "^19",
     "react-dom": "^19",
     "zustand": "^5.0.14"
