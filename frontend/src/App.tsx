@@ -10,7 +10,7 @@ export function App()
 
   useEffect(()=>{
       client.connect()
-  })
+  },[])
 
    return <div className="text-center">
       <input type="text" className="w-100 h-20 border rounded-2xl pl-10 mt-20"  placeholder="enter your text here " onChange={(e )=> setmessage( e.target.value )}/>
@@ -23,9 +23,7 @@ export function App()
       <div>
         {
           messages.map( mess => <p>
-            {
-              mess 
-            }
+            {mess}
           </p> )
         }
       </div>

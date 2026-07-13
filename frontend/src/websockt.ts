@@ -5,13 +5,15 @@ class websocket {
     
 
     connect(){
+
+    if (this.ws) return;
         this.ws = new WebSocket("ws://localhost:3000/ws");
         this.ws.onopen = ()=>{
             console.log("connected")
         }
 
         this.ws.onmessage = ( message )=>{
-            useMessages.getState().setMessages( message.toString() )
+            useMessages.getState().setMessages( message.data )
         }
     }
 

@@ -13,9 +13,13 @@ const wss  =  new WebSocketServer({
 wss.on("connection", ( ws , req )=>{
     console.log("  A user connected ");
     console.log( req.url );
-    ws.onmessage = ( message )=>{
-            wss.clients.forEach( client => client.send( message.data  ))
-    }
+    // ws.onmessage = ( message )=>{
+    //         wss.clients.forEach( client => client.send( message.data  ))
+    // }
+    ws.on("message", ( message )=>{
+        console.log( message );
+        wss.clients.forEach( client => client.send( message.toString() ) )
+    })
 })
 
 
